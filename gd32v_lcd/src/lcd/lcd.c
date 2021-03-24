@@ -91,8 +91,8 @@ void LCD_Address_Set(u16 x1,u16 y1,u16 x2,u16 y2)
 		LCD_WR_DATA(x1+26);
 		LCD_WR_DATA(x2+26);
 		LCD_WR_REG(0x2b);//Row address setting
-		LCD_WR_DATA(y1+1);
-		LCD_WR_DATA(y2+1);
+		LCD_WR_DATA(y1+0);
+		LCD_WR_DATA(y2+0);
 		LCD_WR_REG(0x2c);//Memory write
 	}
 	else if(USE_HORIZONTAL==1)
@@ -101,15 +101,15 @@ void LCD_Address_Set(u16 x1,u16 y1,u16 x2,u16 y2)
 		LCD_WR_DATA(x1+26);
 		LCD_WR_DATA(x2+26);
 		LCD_WR_REG(0x2b);//Row address setting
-		LCD_WR_DATA(y1+1);
-		LCD_WR_DATA(y2+1);
+		LCD_WR_DATA(y1+0);
+		LCD_WR_DATA(y2+0);
 		LCD_WR_REG(0x2c);//Memory write
 	}
 	else if(USE_HORIZONTAL==2)
 	{
 		LCD_WR_REG(0x2a);//Column address settings
-		LCD_WR_DATA(x1+1);
-		LCD_WR_DATA(x2+1);
+		LCD_WR_DATA(x1+0);
+		LCD_WR_DATA(x2+0);
 		LCD_WR_REG(0x2b);//Row address setting
 		LCD_WR_DATA(y1+26);
 		LCD_WR_DATA(y2+26);
@@ -118,8 +118,8 @@ void LCD_Address_Set(u16 x1,u16 y1,u16 x2,u16 y2)
 	else
 	{
 		LCD_WR_REG(0x2a);//Column address settings
-		LCD_WR_DATA(x1+1);
-		LCD_WR_DATA(x2+1);
+		LCD_WR_DATA(x1+0);
+		LCD_WR_DATA(x2+0);
 		LCD_WR_REG(0x2b);//Row address setting
 		LCD_WR_DATA(y1+26);
 		LCD_WR_DATA(y2+26);
@@ -155,6 +155,7 @@ void dma_config(void)
     /* configure DMA mode */
     dma_circulation_disable(DMA0, DMA_CH2);
     dma_memory_to_memory_disable(DMA0, DMA_CH2);
+	dma_transfer_number_config(DMA0, DMA_CH2, length - 1);
 }
 #endif
 

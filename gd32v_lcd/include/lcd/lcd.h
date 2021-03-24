@@ -5,7 +5,7 @@
 #include "stdlib.h"	
 #include "gd32vf103_gpio.h"
 
-#define USE_HORIZONTAL 2  //Set horizontal or vertical screen display 0 or 1 for vertical screen 2 or 3 for horizontal screen
+#define USE_HORIZONTAL 3  //Set horizontal or vertical screen display 0 or 1 for vertical screen 2 or 3 for horizontal screen
 #define HAS_BLK_CNTL    0
 
 #if USE_HORIZONTAL==0||USE_HORIZONTAL==1
@@ -108,17 +108,17 @@ void LCD_ShowLogo(void);
 
 
 //Brush color
-#define WHITE         	 0xFFFF
-#define BLACK         	 0x0000	  
-#define BLUE           	 0x001F  
-#define BRED             0XF81F
+#define WHITE         	 0x0000
+#define BLACK         	 0xFFFF	  
+#define YELLOW           0x001F  
+#define GREEN            0XF81F
 #define GRED 			 0XFFE0
-#define GBLUE			 0X07FF
-#define RED           	 0xF800
+#define RED 			 0X07FF
+#define GBLUE            0xF800
 #define MAGENTA       	 0xF81F
-#define GREEN         	 0x07E0
+#define BRED         	 0x07E0
 #define CYAN          	 0x7FFF
-#define YELLOW        	 0xFFE0
+#define BLUE        	 0xFFE0
 #define BROWN 			 0XBC40 //brown
 #define BRRED 			 0XFC07 //maroon
 #define GRAY  			 0X8430 //gray
